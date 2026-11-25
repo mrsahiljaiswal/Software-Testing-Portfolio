@@ -1,41 +1,41 @@
-# DEF-02 — Clearance blocked at exactly 5000
+# DEF-02 — No-helmet challan accepted for a Car
 
-| Field | Value |
+| Item | Detail |
 | --- | --- |
 | ID | DEF-02 |
-| Title | Clearance blocked at an unpaid total of exactly 5000 |
-| Module | Registration |
+| Title | No-helmet challan was accepted for a Car |
+| Module | Challan recording |
+| Requirement | REQ-FINE-02 |
 | Severity | Major |
 | Priority | High |
-| Build found | B1, 18 November 2026 |
-| Detected in | TC-BVA-22 |
 | Status | Closed |
-| Fixed in | Build B2, 19 November 2026 |
-| Retest | 20 November 2026, Pass |
+| Found | 17 November 2026, Build B1, TC-EP-04 |
+| Also failed | TC-DT-03 on 18 November 2026 |
+| Fixed | 19 November 2026, Build B2 |
+| Retest | 20 November 2026, TC-EP-04 and TC-DT-03, Pass |
+| Regression | `test_TC_EP_04_DEF_02_car_no_helmet_rejected` |
 
-## Description
+## What happened
 
-A new vehicle is blocked only when the owner’s unpaid total is greater than 5000. Exactly 5000 must not block. Build B1 treated 5000 as blocked.
+No helmet is ₹1000 for a Two-wheeler only. A Car must be rejected and nothing stored. On Build B1, a Car with No helmet was accepted and a challan was stored.
 
 ## Steps
 
-1. Register owner OWN1 and private car MH01AA0001 with a valid licence.
-2. On 1 April 2026 issue no insurance (fine 2000) and expressway speed 140 (fine 3000). The two challans share a date, so neither is a prior offence.
-3. Read the unpaid total on 1 April 2026.
-4. Register MH01AA0002 for OWN1 on that date.
+1. Register a Car.
+2. Record No helmet on 1 June 2026.
 
-## Expected
+| | Result |
+| --- | --- |
+| Expected | Rejected. No challan stored. |
+| Actual on B1 | Challan stored. |
+| Actual on B2 | Rejected. No challan stored. |
 
-Unpaid total 5000. `clearance_blocked` is false. MH01AA0002 is stored. The clearance report is empty.
-
-## Actual (Build B1)
-
-`clearance_blocked` was set true and registration of MH01AA0002 was rejected.
+The same steps on a Two-wheeler still produce an Issued challan of ₹1000 (TC-EP-03 and TC-DT-02). Those two passed on Build B1.
 
 ## Fix
 
-The comparison was changed from `total >= 5000` to `total > 5000`. The flag is recomputed from the challans, so it is cleared again when a later payment brings the total to 5000 or below. The check is `_update_clearance` in `system.py`.
+`calculate_fine` rejects No helmet unless the vehicle is a Two-wheeler. The repository code already contains this fix.
 
-## Retest result
+## Retest
 
-TC-BVA-22 passed on Build B2: the second vehicle was stored and the flag stayed false. TC-BVA-23 still blocks at 5001. Regression methods: `test_TC_BVA_22_unpaid_5000_does_not_block` and `test_TC_BVA_23_unpaid_5001_blocks_registration`.
+TC-EP-04 and TC-DT-03 passed on 20 November 2026.
