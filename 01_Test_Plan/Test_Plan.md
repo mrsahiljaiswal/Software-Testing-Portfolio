@@ -5,11 +5,8 @@
 | Document ID | TP-VTFMS-01 |
 | Application | Vehicle Traffic Violation and Fine Management System |
 | Version | 1.0 |
-| Student | [Your Name], [Your Roll Number] |
-| Class / Semester | [Your Class and Semester] |
-| College / Department | [Your College and Department] |
-| Team | [Member 1] (Test Lead), [Member 2] (Test Designer), [Member 3] (Test Executor) |
-| Testing window | 3 November 2026 – 21 November 2026 |
+| Student | Sahil Jaiswal 1MS23IS109<br>Prince Khatri 1MS23IS097<br>Vishal D Dhamu 1MS23IS149 |
+| Class / Semester | [ISE - VII B] |
 
 ## 1. Introduction
 
@@ -134,9 +131,9 @@ python -m unittest "05_Test_Automation\traffic_system\test_traffic.py" -v
 
 | Role | Name | Work |
 | --- | --- | --- |
-| Test Lead | [Member 1] | This plan and the exit review |
-| Test Designer | [Member 2] | The 28 cases and the automation mapping |
-| Test Executor | [Member 3] | The execution log, the defect reports, and the retest |
+| Test Lead | Sahil Jaiswal | This plan and the exit review |
+| Test Designer | Sahil & Prince Khatri | The 28 cases and the automation mapping |
+| Test Executor | Vishal D. Dhamu | The execution log, the defect reports, and the retest |
 
 ## 10. Schedule
 
@@ -170,9 +167,8 @@ python -m unittest "05_Test_Automation\traffic_system\test_traffic.py" -v
 
 ## 13. Approvals
 
-| Role | Name | Date |
-| --- | --- | --- |
-| Test Lead | [Member 1] | |
-| Test Designer | [Member 2] | |
-| Test Executor | [Member 3] | |
-| Faculty | | |
+| Role | Name |
+| --- | --- |
+| Test Lead | Sahil Jaiswal |
+| Test Designer | Prince Khatri |
+| Test Executor | Vishal D. Dhamu |
