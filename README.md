@@ -4,12 +4,12 @@
 
 | Item | Detail |
 | --- | --- |
-| Student Name | [Your Name] |
-| Roll Number | [Your Roll Number] |
-| Class / Semester | [Your Class and Semester] |
-| College / Department | [Your College and Department] |
+| Student Name | Sahil Jaiswal |
+| USN | 1MS23IS109 |
+| Semester | VII |
+| Department | ISE |
 | Subject | Software Testing |
-| Team Members | [Member 1], [Member 2], [Member 3] |
+| Team Members | Vishal D. Dhamu, Prince Khatri |
 
 Replace every bracketed placeholder before submission. This repository does not invent a student name.
 
